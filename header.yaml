@@ -18,8 +18,3 @@ Parameters:
   NotificationKeyVersion:
     Type: String
     Default: '1'
-
-Conditions:
-  hasGateway: !And [ !Not [ !Equals [ !Ref GatewayEndpoint, NONE ] ], !Not [ !Equals [ !Ref CertificateArn, NONE ] ] ]
-  IsProd: !Equals [ !Ref Environment, Production ]
-  ShouldAutoPause: !Equals [ !Ref AutoPause, "true" ]

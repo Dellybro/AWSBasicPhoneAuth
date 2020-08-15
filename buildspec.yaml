@@ -7,7 +7,7 @@ phases:
   build:
     commands:
       - stackbuilder-py build || exit 1
-      - aws cloudformation package  --template-file template.yaml --output-template-file packaged-template.json --s3-bucket gigloft-build --use-json || exit 1
+      - aws cloudformation package  --template-file template.yaml --output-template-file packaged-template.json --s3-bucket stack-builds --use-json || exit 1
 artifacts:
   files:
     - packaged-template.json

@@ -1,0 +1,27 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fyresite/aws-lambda-proxy-response": "^0.1.1",
+    "@fyresite/mysql-data-api": "^0.1.4",
+    "cfn-response": "^1.0.1",
+    "data-api-client": "^1.0.0-beta",
+    "fcm-node": "^1.5.2",
+    "moment-timezone": "^0.5.26",
+    "mysql2": "^1.6.5",
+    "node-fetch": "^2.6.0",
+    "phone": "^2.3.14",
+    "sequelize": "^5.10.0",
+    "stripe": "^7.0.0",
+    "twilio": "^3.31.1",
+    "ua-parser-js": "^0.7.20"
+  }
+}

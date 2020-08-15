@@ -1,0 +1,17 @@
+CustomMessage:
+  Type: AWS::Serverless::Function
+  Properties:
+    Handler: index.handler
+    Runtime: nodejs10.x
+    MemorySize: 128
+    Timeout: 30
+    CodeUri: ./Auth/Triggers/CustomMessage/src
+    Environment:
+      Variables:
+        Environment: !Ref Environment
+CustomMessageLambdaPermission:
+  Type: AWS::Lambda::Permission
+  Properties: 
+    Action: lambda:InvokeFunction
+    FunctionName: !GetAtt CustomMessage.Arn
+    Principal: cognito-idp.amazonaws.com

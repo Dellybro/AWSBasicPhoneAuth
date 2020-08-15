@@ -1,0 +1,26 @@
+UserPool:
+  Type: AWS::Cognito::UserPool
+  Properties:
+    UserPoolName: !Ref UserPoolName
+    UsernameAttributes:
+      - email
+    AutoVerifiedAttributes:
+      - email
+    SmsConfiguration:
+      SnsCallerArn: !GetAtt SNSRole.Arn
+    # EmailConfiguration:
+    #   EmailSendingAccount: DEVELOPER
+    #   ReplyToEmailAddress: fake@blah.com
+    #   SourceArn: arn:aws:ses:us-west-2:941079264674:identity/no-reply@blah.com
+    Policies:
+      PasswordPolicy:
+        MinimumLength: 8
+        RequireLowercase: true
+        RequireNumbers: true
+        RequireSymbols: false
+        RequireUppercase: true
+    LambdaConfig:
+      CustomMessage: !GetAtt CustomMessage.Arn
+      PreSignUp: !GetAtt PreSignUp.Arn
+      PostAuthentication: !GetAtt PostAuthentication.Arn
+    MfaConfiguration: OPTIONAL

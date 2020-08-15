@@ -1,0 +1,6 @@
+WebClient:
+  Type: AWS::Cognito::UserPoolClient
+  Properties:
+    ClientName: web-client
+    UserPoolId:
+      Ref: UserPool

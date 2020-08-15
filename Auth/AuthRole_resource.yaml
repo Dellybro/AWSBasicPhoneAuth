@@ -1,0 +1,28 @@
+AuthRole:
+  Type: AWS::IAM::Role
+  Properties:
+    AssumeRolePolicyDocument:
+      Version: '2012-10-17'
+      Statement:
+        - Effect: Allow
+          Principal:
+            Federated: cognito-identity.amazonaws.com
+          Action:
+            - sts:AssumeRoleWithWebIdentity
+          Condition:
+            StringEquals:
+              cognito-identity.amazonaws.com:aud:
+                Ref: IdentityPool
+            ForAnyValue:StringLike:
+              cognito-identity.amazonaws.com:amr:
+                - authenticated
+    Policies:
+      - PolicyName: permissions
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - cognito-identity:GetId
+              Resource:
+                - Fn::Sub: arn:aws:cognito-identity:${AWS::Region}:${AWS::AccountId}:identitypool/${IdentityPool}

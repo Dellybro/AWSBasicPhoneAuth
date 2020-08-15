@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mkdir /tmp/code || exit 1  &&
+mv -v Layers/SharedLayer/nodejs/* /tmp/code/ || exit 1  &&
+mkdir -p Layers/SharedLayer/nodejs/node_modules || exit 1  &&
+mv -v /tmp/code/* Layers/SharedLayer/nodejs/node_modules/ || exit 1

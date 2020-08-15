@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Globals:
+  Function:
+    Environment:
+      Variables:
+        Environment: !Ref Environment
+        GatewayEndpoint: !Ref GatewayEndpoint
+Parameters:
+  UserPoolName:
+    Type: String
+  Environment:
+    Type: String
+    Default: Development
+  NotificationKeyName:
+    Type: String
+    Default: FirebaseSeverKey
+  NotificationKeyVersion:
+    Type: String
+    Default: '1'
+
+Conditions:
+  hasGateway: !And [ !Not [ !Equals [ !Ref GatewayEndpoint, NONE ] ], !Not [ !Equals [ !Ref CertificateArn, NONE ] ] ]
+  IsProd: !Equals [ !Ref Environment, Production ]
+  ShouldAutoPause: !Equals [ !Ref AutoPause, "true" ]

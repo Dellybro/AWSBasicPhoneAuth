@@ -1,0 +1,18 @@
+{
+  "Parameters": {
+    "Environment": "Production",
+    "UserPoolName": "UserPool-production"
+  },
+  "StackPolicy": {
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "Update:*"
+        ],
+        "Principal": "*",
+        "Resource": "*"
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "Parameters": {
+    "Environment": "Staging",
+    "UserPoolName": "UserPool-staging"
+  },
+  "StackPolicy": {
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "Update:*"
+        ],
+        "Principal": "*",
+        "Resource": "*"
+      }
+    ]
+  }
+}

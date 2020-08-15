@@ -1,0 +1,18 @@
+{
+  "Parameters": {
+    "Environment": "Development",
+    "UserPoolName": "UserPool-development"
+  },
+  "StackPolicy": {
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "Update:*"
+        ],
+        "Principal": "*",
+        "Resource": "*"
+      }
+    ]
+  }
+}

@@ -5,7 +5,6 @@ Globals:
     Environment:
       Variables:
         Environment: !Ref Environment
-        GatewayEndpoint: !Ref GatewayEndpoint
 Parameters:
   UserPoolName:
     Type: String

@@ -21,6 +21,4 @@ UserPool:
         RequireUppercase: true
     LambdaConfig:
       CustomMessage: !GetAtt CustomMessage.Arn
-      PreSignUp: !GetAtt PreSignUp.Arn
-      PostAuthentication: !GetAtt PostAuthentication.Arn
     MfaConfiguration: OPTIONAL
